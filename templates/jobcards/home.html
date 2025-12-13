@@ -1,0 +1,13 @@
+{% extends 'jobcards/base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="fw-bold">KNUST Transport Servicing Unit</h1>
+    <p class="lead">Vehicle servicing and maintenance made simple</p>
+
+    <a href="{% url 'create_job_card' %}" class="btn btn-primary btn-lg mt-3">
+        Create Job Card
+    </a>
+</div>
+{% endblock %}
