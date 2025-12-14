@@ -22,13 +22,13 @@
                 <th>Department</th>
                 <th>Vehicle Model</th>
                 <th>Status</th>
-                
+
             </tr>
         </thead>
         <tbody>
             {% for card in job_cards %}
             <tr>
-                <td>{{ card.job_card_no }}</td>
+                <td><a href="{% url 'job_card_detail' card.job_card_no %}"> {{ card.job_card_no }}</a></td>
                 <td>{{ card.full_name }}</td>
                 <td>{{ card.vehicle_make_model }}</td>
                 <td>{{ card.phone_number }}</td>
