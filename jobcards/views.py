@@ -20,10 +20,6 @@ def create_job_card(request):
     return render(request, 'jobcards/create_job_card.html', {'form': form})
 
 
-def job_card_success(request, job_card_no):
-    job_card = get_object_or_404(JobCard, job_card_no=job_card_no)
-    return render(request, 'jobcards/job_card_success.html', {'job_card': job_card})
-
 
 def job_card_success(request, job_card_no):
     job_card = get_object_or_404(JobCard, job_card_no=job_card_no)
@@ -32,6 +28,7 @@ def job_card_success(request, job_card_no):
         'jobcards/job_card_success.html',
         {'job_card': job_card}
     )
+    
 def job_card_list(request):
     job_cards = JobCard.objects.order_by('-timestamp')
     return render(
@@ -39,6 +36,8 @@ def job_card_list(request):
         'jobcards/job_card_list.html',
         {'job_cards': job_cards}
     )
+    
+
 def job_card_detail(request, job_card_no):
     job_card = get_object_or_404(JobCard, job_card_no=job_card_no)
     return render(

@@ -1,4 +1,5 @@
 {% extends 'jobcards/base.html' %}
+
 {% block title %}Create Job Card{% endblock %}
 
 {% block content %}
@@ -7,45 +8,26 @@
 <form method="POST">
     {% csrf_token %}
 
-    <div class="row g-3">
-        <div class="col-md-6">
-            <label>Full Name</label>
-            <input type="text" class="form-control" name="full_name" required>
-        </div>
+    {% for field in form %}
+        <div class="mb-3">
+            <label for="{{ field.id_for_label }}" class="form-label">
+                {{ field.label }}
+            </label>
 
-        <div class="col-md-6">
-            <label>Department / Faculty</label>
-            <input type="text" class="form-control" name="department">
-        </div>
+            {{ field }}
 
-        <div class="col-md-6">
-            <label>Phone Number</label>
-            <input type="tel" class="form-control" name="phone">
+            {% for error in field.errors %}
+                <div class="alert alert-danger mt-1">
+                    {{ error }}
+                </div>
+            {% endfor %}
         </div>
+    {% endfor %}
 
-        <div class="col-md-6">
-            <label>Email</label>
-            <input type="email" class="form-control" name="email">
-        </div>
-
-        <div class="col-md-6">
-            <label>Vehicle Make & Model</label>
-            <input type="text" class="form-control" name="vehicle">
-        </div>
-
-        <div class="col-md-6">
-            <label>Registration Number</label>
-            <input type="text" class="form-control" name="registration">
-        </div>
-
-        <div class="col-12">
-            <label>Describe Issue</label>
-            <textarea class="form-control" name="issue"></textarea>
-        </div>
-
-        <div class="col-12">
-            <button class="btn btn-success mt-3">Submit & Proceed to Payment</button>
-        </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success mt-3">
+            Submit & Proceed to Payment
+        </button>
     </div>
 </form>
 {% endblock %}

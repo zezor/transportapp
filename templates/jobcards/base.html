@@ -16,7 +16,9 @@
         <a class="navbar-brand fw-bold" href="{% url 'home' %}">KNUST TSU</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'create_job_card' %}">Create Job Card</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'job_card_list' %}">Job Cards</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
             </ul>
         </div>
