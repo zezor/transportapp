@@ -23,6 +23,7 @@
             <p><strong>Date Created:</strong> {{ job_card.timestamp|date:"d M Y H:i" }}</p>
             <p><strong>Last Updated:</strong> {{ job_card.updated_at|date:"d M Y H:i" }}</p>
             <a href="{% url 'job_card_list' %}" class="btn btn-secondary mt-3">Back to Job Cards</a>
+            
         </div>
     </div>
 </div>

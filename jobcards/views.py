@@ -45,3 +45,20 @@ def job_card_detail(request, job_card_no):
         'jobcards/job_card_detail.html',
         {'job_card': job_card}
     )
+    
+def print_job_card(request, job_card_no):
+    job_card = get_object_or_404(JobCard, job_card_no=job_card_no)
+    return render(
+        request,
+        'jobcards/print_job_card.html',
+        {'job_card': job_card}
+    )
+    
+def dashboard(request):
+    
+    total_job_cards = JobCard.objects.count()
+    
+    context = {
+        'total_job_cards': total_job_cards,
+    }
+    return render(request, 'jobcards/dashboard.html', context)
